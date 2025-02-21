@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/app_nav"
+    app:startDestination="@id/menuScreen">
+    <fragment
+        android:id="@+id/gameScreen"
+        android:name="uz.polat.xotira.presentation.GameScreen"
+        android:label="GameScreen" >
+        <argument
+            android:name="level"
+            app:argType="uz.polat.xotira.data.LevelEnum"
+            android:defaultValue="EASY" />
+        <argument
+            android:name="type"
+            app:argType="uz.polat.xotira.data.TypeEnum"
+            android:defaultValue="FRUIT" />
+    </fragment>
+    <fragment
+        android:id="@+id/levelScreen"
+        android:name="uz.polat.xotira.presentation.LevelScreen"
+        android:label="LevelScreen" >
+        <action
+            android:id="@+id/action_levelScreen_to_gameScreen"
+            app:destination="@id/gameScreen" />
+        <argument
+            android:name="type"
+            app:argType="uz.polat.xotira.data.TypeEnum"
+            android:defaultValue="FRUIT" />
+    </fragment>
+    <fragment
+        android:id="@+id/menuScreen"
+        android:name="uz.polat.xotira.presentation.MenuScreen"
+        android:label="MenuScreen" >
+        <action
+            android:id="@+id/action_menuScreen_to_levelScreen"
+            app:destination="@id/levelScreen" />
+    </fragment>
+</navigation>
